@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.basic.back_end.basic.domain.board.mapper.BoardMapper">
+
+    <!-- 게시판 목록 조회 -->
+    <select id="getAllBoards" resultType="com.basic.back_end.basic.domain.board.entity.Board">
+        SELECT * FROM board;
+    </select>
+
+    <!-- 게시글 상세 조회 -->
+    <select id="getBoardById" parameterType="long" resultType="com.basic.back_end.basic.domain.board.entity.Board">
+        SELECT * FROM board WHERE id = #{id};
+    </select>
+
+    <!-- 게시글 저장 -->
+    <insert id="saveBoard" parameterType="com.basic.back_end.basic.domain.board.entity.Board">
+        INSERT INTO board (title, content) VALUES (#{title}, #{content});
+    </insert>
+
+</mapper>
